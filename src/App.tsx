@@ -1,3 +1,4 @@
+import { Card } from "./components/Card";
 import { UserInfo } from "./components/UserInfo";
 
 const App = () => {
@@ -34,14 +35,16 @@ const App = () => {
     <>
       {
         users.map((user) => (
-          <UserInfo
-            name={user.name}
-            email={user.email}
-            phone={user.phone}
-            imgSrc={user.imgSrc}
-            imgAltText={user.imgAltText}
-            roles={user.roles}
-          />
+          <Card>
+            <UserInfo
+              name={user.name}
+              email={user.email}
+              phone={user.phone}
+              imgSrc={user.imgSrc}
+              imgAltText={user.imgAltText}
+              roles={user.roles}
+            />
+          </Card>
         ))
       }
     </>
