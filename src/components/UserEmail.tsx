@@ -1,7 +1,9 @@
-export const UserEmail = () => {
-    let email = "emanuelrodrigues010@gmail.com"
+type emailProps = {
+    email: string
+}
 
+export const UserEmail = ({ email }: emailProps) => {
     return (
-        <h2>{email}</h2>
+        <h2>Meu email é: {email}</h2>
     )
 }

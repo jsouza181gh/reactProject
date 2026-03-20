@@ -1,7 +1,9 @@
-export const UserPhone = () => {
-    let phone = "(21) 97940-5435"
+type phoneProps = {
+    phone: string
+}
 
+export const UserPhone = ({ phone } : phoneProps) => {
     return (
-        <h2>{phone}</h2>
+        <h2>Meu telefone é: {phone}</h2>
     )
 }

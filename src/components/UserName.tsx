@@ -1,7 +1,9 @@
-export const UserName = () => {
-    let name = "João Emanuel Souza Rodrigues"
+type nameProps = {
+    name: string
+}
 
+export const UserName = ({ name } : nameProps) => {
     return (
-        <h2>{name}</h2>
+        <h2>Meu nome é: {name.toUpperCase()}</h2>
     )
 }
