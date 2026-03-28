@@ -1,15 +1,27 @@
-import { createContext } from "react";
-import { Button } from "./components/button";
+import { createContext, useState } from "react";
+import { Button } from "./components/Button";
+import { Card } from "./components/Card";
 
-export const ThemeContext = createContext<string | null>(null);
+type ThemeContextType = {
+	theme: string;
+	setTheme: (value: string) => void
+}
+
+export const ThemeContext = createContext<ThemeContextType>({
+	theme: '',
+	setTheme: () => {}
+});
 
 const App = () => {
+	const [theme, setTheme] = useState('light');
 
 	return (
-		<ThemeContext.Provider value={'light'}>
-			<Button />
-		</ThemeContext.Provider>
-		
+		<>
+			<ThemeContext.Provider value={{ theme, setTheme }}>
+				<Button />
+				<Card />
+			</ThemeContext.Provider>
+		</>		
 	);
 };
 
