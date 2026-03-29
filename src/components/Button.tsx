@@ -1,17 +1,26 @@
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { Context } from "../context/Context";
 
 export const Button = () => {
-    const { theme, setTheme } = useContext(ThemeContext);
-    const handleChangeTheme = () => {
-        setTheme(theme == 'light' ? 'dark' : 'light');
+    const { state, dispatch } = useContext(Context);
+
+    const handleClick = () => {
+        if (state.theme.theme == 'dark') {
+            dispatch({type: 'CHANGE_THEME', payload: 'light'});
+        } else {
+            dispatch({type: 'CHANGE_THEME', payload: 'dark'});
+        }
     };
+
+    const style = {
+        background: state.theme.theme == 'light' ? 'white' : 'black',
+        color: state.theme.theme == 'light' ? 'black' : 'white'
+    }; 
 
     return (
         <div>
-            <button onClick={handleChangeTheme}>
-                Mudar Tema
-            </button>
+            <h2 style={style}>Meu tema é: {state.theme.theme}</h2><br />
+            <button onClick={handleClick}>Trocar Tema</button>
         </div>
     );
 };
